@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_attendance_bonus_record_payroll_manager,access.attendance.bonus.record.payroll.manager,attendance_bonus_check.model_attendance_bonus_record,attendance_bonus_payroll.group_perfect_attendance_payroll_manager,1,0,0,0
+access_attendance_bonus_record_payroll_user,access.attendance.bonus.record.payroll.user,attendance_bonus_check.model_attendance_bonus_record,om_hr_payroll.group_hr_payroll_manager,1,0,0,0

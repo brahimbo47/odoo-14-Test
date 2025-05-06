@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="DZ_BASIC" model="hr.salary.rule.category">
+            <field name="name">DZ Basic</field>
+            <field name="code">DZBASIC</field>
+            <field name="parent_id" ref="om_hr_payroll.BASIC"/> <!-- Link to om_hr_payroll base category if exists -->
+        </record>
+
+        <record id="DZ_ALW" model="hr.salary.rule.category">
+            <field name="name">DZ Allowances</field>
+            <field name="code">DZALW</field>
+            <field name="parent_id" ref="om_hr_payroll.ALW"/> <!-- Link to om_hr_payroll base category if exists -->
+        </record>
+
+        <record id="DZ_GROSS" model="hr.salary.rule.category">
+            <field name="name">DZ Gross</field>
+            <field name="code">DZGROSS</field>
+            <!-- No parent, top-level aggregation -->
+        </record>
+
+        <record id="DZ_DED" model="hr.salary.rule.category">
+            <field name="name">DZ Deductions</field>
+            <field name="code">DZDED</field>
+            <field name="parent_id" ref="om_hr_payroll.DED"/> <!-- Link to om_hr_payroll base category if exists -->
+        </record>
+
+        <record id="DZ_NET" model="hr.salary.rule.category">
+            <field name="name">DZ Net</field>
+            <field name="code">DZNET</field>
+            <!-- No parent, final result -->
+        </record>
+
+        <record id="DZ_COMP" model="hr.salary.rule.category">
+            <field name="name">DZ Company Contributions</field>
+            <field name="code">DZCOMP</field>
+            <!-- For employer costs, doesn't affect net pay -->
+        </record>
+
+    </data>
+</odoo>

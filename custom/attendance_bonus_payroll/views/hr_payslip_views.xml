@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_hr_payslip_form_inherit_attendance_bonus" model="ir.ui.view">
+        <field name="name">hr.payslip.form.inherit.attendance.bonus</field>
+        <field name="model">hr.payslip</field>
+        <field name="inherit_id" ref="om_hr_payroll.view_hr_payslip_form"/>
+        <field name="arch" type="xml">
+            <!-- Add technical/debugging fields (usually kept invisible) -->
+            <!-- Place them somewhere logical, e.g., after worked_days_line_ids or input_line_ids -->
+            <xpath expr="//notebook" position="before">
+                <group>
+                     <!-- These fields are mainly for computation and debugging -->
+                     <!-- They don't need to be visible to the end-user unless desired -->
+                     <field name="has_perfect_attendance_bonus" invisible="1"/>
+                     <!-- Making the record link visible (read-only) can be useful for verification -->
+                     <field name="attendance_bonus_record_id" readonly="1" options="{'no_open': True}" string="Attendance Bonus Eligibility Ref"/>
+                </group>
+            </xpath>
+
+             <!-- You could also add a status indicator near the header if preferred -->
+            <!-- Example:
+            <xpath expr="//header" position="after">
+                <div class="alert alert-info" role="status"
+                     attrs="{'invisible': [('has_perfect_attendance_bonus', '=', False)]}">
+                     Eligible for Perfect Attendance Bonus this period.
+                </div>
+            </xpath>
+             -->
+        </field>
+    </record>
+</odoo>

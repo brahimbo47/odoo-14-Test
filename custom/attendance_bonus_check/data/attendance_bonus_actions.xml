@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!-- Server Action: Open existing config or create a new one -->
+        <record id="action_open_attendance_bonus_config_server" model="ir.actions.server">
+            <field name="name">Open Attendance Bonus Configuration</field>
+            <field name="model_id" ref="model_attendance_bonus_config"/>
+            <field name="state">code</field>
+            <field name="code">
+company_id = env.company.id
+config_record = env['attendance.bonus.config'].search([('company_id', '=', company_id)], limit=1)
+
+# Get the form view's external ID (or database ID)
+form_view_id = env.ref('attendance_bonus_check.view_attendance_bonus_config_form').id
+
+action_vals = {
+    'type': 'ir.actions.act_window',
+    'name': 'Configuration',
+    'res_model': 'attendance.bonus.config',
+    'view_mode': 'form',
+    'target': 'current',
+    'views': [(form_view_id, 'form')],
+    'flags': {'create': False},
+}
+
+if config_record:
+    action_vals['res_id'] = config_record.id
+else:
+    action_vals['context'] = {'default_company_id': company_id}
+
+action = action_vals
+            </field>
+        </record>
+
+    </data>
+</odoo>

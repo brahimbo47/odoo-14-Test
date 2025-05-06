@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree View -->
+    <record id="view_dz_tax_bracket_tree" model="ir.ui.view">
+        <field name="name">dz.tax.bracket.tree</field>
+        <field name="model">dz.tax.bracket</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name"/>
+                <field name="lower_limit" widget="monetary" options="{'currency_field': 'res.company.currency_id'}"/>
+                <field name="upper_limit" widget="monetary" options="{'currency_field': 'res.company.currency_id'}"/>
+                <field name="rate" widget="percentage"/>
+                <field name="deduction" widget="monetary" options="{'currency_field': 'res.company.currency_id'}"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View (Optional, Tree is often sufficient) -->
+    <record id="view_dz_tax_bracket_form" model="ir.ui.view">
+        <field name="name">dz.tax.bracket.form</field>
+        <field name="model">dz.tax.bracket</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="lower_limit"/>
+                        <field name="upper_limit"/>
+                        <field name="rate" widget="percentage"/>
+                        <field name="deduction"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_dz_tax_bracket" model="ir.actions.act_window">
+        <field name="name">IRG Brackets</field>
+        <field name="res_model">dz.tax.bracket</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Define Algerian IRG tax brackets here.
+            </p><p>
+                Enter the annual lower/upper income limits, the tax rate, and the fixed deduction for each bracket.
+            </p>
+        </field>
+    </record>
+
+</odoo>

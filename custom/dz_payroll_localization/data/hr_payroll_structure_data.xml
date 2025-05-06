@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="dz_structure_employee" model="hr.payroll.structure">
+            <field name="name">Algerian Employee Structure</field>
+            <field name="code">DZEMPL</field>
+            <!-- Link to parent structure in om_hr_payroll if applicable -->
+            <!-- <field name="parent_id" ref="om_hr_payroll.structure_base"/> -->
+            <field name="rule_ids" eval="[(6, 0, [ref('dz_rule_basic'), ref('dz_rule_transport'), ref('dz_rule_family_allowance'), ref('dz_rule_seniority'), ref('dz_rule_overtime_150'), ref('dz_rule_gross'), ref('dz_rule_cnas_employee'), ref('dz_rule_css_employee'), ref('dz_rule_irg'), ref('dz_rule_net'), ref('dz_rule_cnas_employer'), ref('dz_rule_css_employer')])]"/>
+        </record>
+
+        <record id="dz_structure_intern" model="hr.payroll.structure">
+            <field name="name">Algerian Intern Structure</field>
+            <field name="code">DZINTERN</field>
+            <field name="rule_ids" eval="[(6, 0, [ref('dz_rule_basic'), ref('dz_rule_transport'),])]"/>
+            <!-- This structure needs refinement based on intern payment rules -->
+        </record>
+
+        <record id="dz_structure_freelance" model="hr.payroll.structure">
+            <field name="name">Algerian Freelance Structure (CASNOS)</field>
+            <field name="code">DZFRELANCE</field>
+            <field name="rule_ids" eval="[(6, 0, [])]"/>
+             <!-- This structure needs specific CASNOS rules or clarification -->
+        </record>
+
+    </data>
+</odoo>

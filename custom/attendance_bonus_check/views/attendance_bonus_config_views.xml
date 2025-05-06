@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+
+    <!-- Form View for Configuration -->
+    <record id="view_attendance_bonus_config_form" model="ir.ui.view">
+        <field name="name">attendance.bonus.config.form</field>
+        <field name="model">attendance.bonus.config</field>
+        <field name="arch" type="xml">
+            <form string="Attendance Bonus Configuration">
+                <sheet>
+                    <h2>Attendance Bonus Configuration</h2>
+                    <group>
+                        <field name="company_id" readonly="1" options="{'no_open': True}"/>
+                    </group>
+                    <group string="Allowed Leave Types">
+                         <field name="allowed_leave_type_ids" nolabel="1" widget="many2many_tags"
+                                options="{'color_field': 'color_name', 'no_create_edit': True}">
+                             <tree>
+                                <field name="name"/>
+                             </tree>
+                         </field>
+                        <div class="text-muted" colspan="2">
+                            Select leave types that DO NOT disqualify an employee from the perfect attendance bonus.
+                            Any leave type *not* listed here will make the employee ineligible if taken during the period.
+                        </div>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action Window for Configuration -->
+<!--    <record id="action_attendance_bonus_config" model="ir.actions.act_window">-->
+<!--        <field name="name">Configuration</field>-->
+<!--        <field name="res_model">attendance.bonus.config</field>-->
+<!--        <field name="view_mode">form</field>-->
+<!--        <field name="target">current</field>-->
+<!--        <field name="view_id" ref="view_attendance_bonus_config_form"/>-->
+<!--        <field name="res_id" eval="False"/>-->
+<!--        <field name="domain">[]</field>-->
+<!--        <field name="context">{}</field>-->
+<!--        <field name="usage">menu</field>-->
+<!--        <field name="help" type="html">-->
+<!--          <p class="o_view_nocontent_smiling_face">-->
+<!--            Configure Attendance Bonus settings here.-->
+<!--          </p><p>-->
+<!--            Define which types of employee time off (leaves) are considered acceptable and do not disqualify them from receiving the perfect attendance bonus for a given period. Click 'Create' to set up the configuration for your company if it doesn't exist.-->
+<!--          </p>-->
+<!--        </field>-->
+<!--    </record>-->
+
+    <!-- Configuration Submenu Item -->
+     <menuitem
+          id="menu_attendance_bonus_config"
+          name="Configuration"
+          parent="attendance_bonus_check.menu_attendance_bonus_root"
+          action="action_open_attendance_bonus_config_server"
+          sequence="99"
+          groups="hr.group_hr_manager"
+     />
+
+  </data>
+</odoo>

@@ -1,0 +1,15 @@
+<odoo>
+  <record id="view_employee_form_custom_id_header" model="ir.ui.view">
+    <field name="name">hr.employee.form.custom.id.header</field>
+    <field name="model">hr.employee</field>
+    <field name="inherit_id" ref="hr.view_employee_form"/>
+    <field name="priority" eval="25"/>
+    <field name="arch" type="xml">
+      <xpath expr="(//h1)[1]" position="after">
+        <div class="o_text_muted o_mb_sm">
+          <field name="custom_employee_id" readonly="1"/>
+        </div>
+      </xpath>
+    </field>
+  </record>
+</odoo>

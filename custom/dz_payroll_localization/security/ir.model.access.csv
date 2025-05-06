@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_dz_tax_bracket,dz.tax.bracket access,model_dz_tax_bracket,base.group_user,1,1,1,1
+access_dz_overtime_rate,dz.overtime.rate access,model_dz_overtime_rate,base.group_user,1,1,1,1
+access_dz_employee_dependent,dz.employee.dependent access,model_dz_employee_dependent,base.group_user,1,1,1,1
+access_hr_payslip_monthly_irg,hr.payslip.monthly.irg access,model_hr_payslip_monthly_irg,base.group_user,1,0,0,0
+access_hr_payslip_report_config,hr.payslip.report.config access,model_hr_payslip_report_config,base.group_user,1,1,1,1

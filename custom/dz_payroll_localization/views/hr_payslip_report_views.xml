@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_hr_payslip_report_config_form" model="ir.ui.view">
+        <field name="name">hr.payslip.report.config.form</field>
+        <field name="model">hr.payslip.report.config</field>
+        <field name="arch" type="xml">
+            <form string="Generate Payroll Report">
+                <group>
+                    <field name="report_type"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <!-- Add other filters here -->
+                </group>
+                <footer>
+                    <button name="action_generate_report" string="Generate Report" type="object" class="btn-primary"/>
+                    <!-- Add Export buttons if implementing export directly -->
+                    <!-- <button name="action_export_csv" string="Export CSV" type="object" class="btn-secondary"/> -->
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hr_payslip_report_config" model="ir.actions.act_window">
+        <field name="name">Generate Payroll Report</field>
+        <field name="res_model">hr.payslip.report.config</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field> <!-- Open as a wizard popup -->
+    </record>
+
+    <!-- Optional: Action and View for the placeholder report data -->
+    <!--
+    <record id="view_hr_payslip_monthly_irg_tree" model="ir.ui.view">
+        <field name="name">hr.payslip.monthly.irg.tree</field>
+        <field name="model">hr.payslip.monthly.irg</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="employee_id"/>
+                <field name="period"/>
+                <field name="taxable_income"/>
+                <field name="irg_amount"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_report_monthly_irg" model="ir.actions.act_window">
+        <field name="name">Monthly IRG Report</field>
+        <field name="res_model">hr.payslip.monthly.irg</field>
+        <field name="view_mode">tree</field>
+        <field name="target">current</field>
+    </record>
+    -->
+
+</odoo>

@@ -1,0 +1,8 @@
+<odoo>
+  <data noupdate="1">
+    <record id="employee_id_config_default" model="employee.id.config">
+      <field name="name">Default Config</field>
+      <field name="format_string">{DEP}-{YEAR}-{SEQ}</field>
+    </record>
+  </data>
+</odoo>

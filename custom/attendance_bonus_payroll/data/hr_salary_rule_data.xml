@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1"> <!-- noupdate="1" prevents updates on module upgrade -->
+
+        <!-- Salary Rule Category for Attendance Bonus -->
+        <record id="hr_salary_rule_category_attendance_bonus" model="hr.salary.rule.category">
+            <field name="name">Attendance Bonus</field>
+            <field name="code">ATTBONUS</field> <!-- Changed code slightly for clarity -->
+            <!-- parent can be uncommented if you want to nest it e.g., under Allowances
+            <field name="parent_id" ref="hr_payroll.ALW"/> -->
+        </record>
+
+        <!-- Perfect Attendance Bonus Salary Rule -->
+        <record id="hr_salary_rule_perfect_attendance_bonus" model="hr.salary.rule">
+            <field name="name">Perfect Attendance Bonus</field>
+            <field name="sequence">90</field>
+            <field name="code">PAB</field>
+            <field name="category_id" ref="hr_salary_rule_category_attendance_bonus"/>
+            <field name="active" eval="True"/>
+            <field name="appears_on_payslip" eval="True"/>
+            <!-- Condition: Use the computed boolean field on the payslip object -->
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = payslip.has_perfect_attendance_bonus</field>
+
+            <!-- Amount: Fixed amount (as per original code) -->
+            <!-- Consider making this configurable (e.g., via config settings or contract) -->
+            <field name="amount_select">fix</field> <!-- Use 'fix', not 'fixed' -->
+            <field name="amount_fix">100.0</field>
+
+            <!-- Optional: Assign to a default Salary Structure -->
+            <!-- If you want this rule automatically added to the 'Regular Pay' structure -->
+            <!-- <field name="struct_id" ref="hr_payroll.structure_base"/> -->
+            <!-- If struct_id is False (or not set), you must manually add this rule to relevant Salary Structures -->
+
+        </record>
+    </data>
+</odoo>

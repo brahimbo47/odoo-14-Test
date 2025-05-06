@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+
+    <!-- Tree view -->
+    <record id="view_attendance_bonus_record_tree" model="ir.ui.view">
+      <field name="name">attendance.bonus.record.tree</field>
+      <field name="model">attendance.bonus.record</field>
+      <field name="arch" type="xml">
+        <tree default_order="month desc, employee_id" decoration-success="is_eligible == True" decoration-danger="is_eligible == False">
+          <field name="employee_id"/>
+          <field name="month"/>
+          <field name="company_id" groups="base.group_multi_company" optional="show"/>
+          <field name="is_eligible"/>
+          <field name="reason" optional="hide"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Form view -->
+    <record id="view_attendance_bonus_record_form" model="ir.ui.view">
+      <field name="name">attendance.bonus.record.form</field>
+      <field name="model">attendance.bonus.record</field>
+      <field name="arch" type="xml">
+        <form>
+          <header>
+             <!-- Button to manually recalculate bonus -->
+             <button name="action_recalculate_bonus" string="Recalculate" type="object"
+                     class="oe_highlight"
+                     groups="attendance_bonus_check.group_attendance_bonus_manager"
+                     confirm="Are you sure you want to recalculate the eligibility for this record?"/>
+          </header>
+          <sheet>
+            <group>
+              <group>
+                  <field name="employee_id" options="{'no_create': True, 'no_open': True}"/>
+                  <field name="company_id" groups="base.group_multi_company"/>
+              </group>
+              <group>
+                  <field name="month" readonly="1"/>
+                  <field name="is_eligible"/>
+                  <field name="reason"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_attendance_bonus_record_search" model="ir.ui.view">
+        <field name="name">attendance.bonus.record.search</field>
+        <field name="model">attendance.bonus.record</field>
+        <field name="arch" type="xml">
+            <search string="Search Bonus Eligibility">
+                <field name="employee_id"/>
+                <field name="month"/>
+                <filter string="Eligible" name="filter_eligible" domain="[('is_eligible', '=', True)]"/>
+                <filter string="Not Eligible" name="filter_not_eligible" domain="[('is_eligible', '=', False)]"/>
+                <separator/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <group expand="0" string="Group By">
+                    <filter string="Employee" name="groupby_employee" context="{'group_by':'employee_id'}"/>
+                    <filter string="Month" name="groupby_month" context="{'group_by':'month'}"/>
+                    <filter string="Company" name="groupby_company" context="{'group_by':'company_id'}" groups="base.group_multi_company"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action Window -->
+    <record id="action_attendance_bonus_record" model="ir.actions.act_window">
+      <field name="name">Bonus Eligibility Records</field>
+      <field name="res_model">attendance.bonus.record</field>
+      <field name="view_mode">tree,form</field>
+      <field name="search_view_id" ref="view_attendance_bonus_record_search"/>
+      <field name="context">{'search_default_groupby_month': 1}</field>
+      <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            No attendance bonus records found.
+          </p><p>
+            Bonus eligibility is calculated automatically each month. You can view the results here.
+          </p>
+      </field>
+    </record>
+
+    <!-- Main Parent Menu Item (Container) -->
+    <menuitem
+      id="menu_attendance_bonus_root"
+      name="Attendance Bonus"
+      parent="hr_attendance.menu_hr_attendance_root"
+      sequence="50"
+      groups="attendance_bonus_check.group_attendance_bonus_manager,hr.group_hr_manager"
+    />
+
+    <!-- Submenu Item for viewing records -->
+    <menuitem
+        id="menu_attendance_bonus_records_list"
+        name="Bonus Eligibility Records"
+        parent="menu_attendance_bonus_root"
+        action="action_attendance_bonus_record"
+        sequence="10"
+        groups="attendance_bonus_check.group_attendance_bonus_manager,hr.group_hr_manager"
+    />
+
+  </data>
+</odoo>

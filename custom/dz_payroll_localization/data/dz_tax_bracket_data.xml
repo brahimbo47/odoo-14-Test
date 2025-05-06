@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="dz_tax_bracket_exempt" model="dz.tax.bracket">
+            <field name="name">Exempt (0%)</field>
+            <field name="lower_limit">0</field>
+            <field name="upper_limit">240000</field> <!-- 20,000 * 12 -->
+            <field name="rate">0.0</field> <!-- 0% -->
+            <field name="deduction">0</field>
+        </record>
+
+        <record id="dz_tax_bracket_23" model="dz.tax.bracket">
+            <field name="name">Bracket 1 (23%)</field>
+            <field name="lower_limit">240001</field> <!-- 20,001 * 12 (approx) -->
+            <field name="upper_limit">480000</field> <!-- 40,000 * 12 -->
+            <field name="rate">0.23</field> <!-- 23% -->
+            <field name="deduction">55200</field>
+        </record>
+
+        <record id="dz_tax_bracket_27" model="dz.tax.bracket">
+            <field name="name">Bracket 2 (27%)</field>
+            <field name="lower_limit">480001</field> <!-- 40,001 * 12 (approx) -->
+            <field name="upper_limit">960000</field> <!-- 80,000 * 12 -->
+            <field name="rate">0.27</field> <!-- 27% -->
+            <field name="deduction">79200</field>
+        </record>
+
+        <record id="dz_tax_bracket_30" model="dz.tax.bracket">
+            <field name="name">Bracket 3 (30%)</field>
+            <field name="lower_limit">960001</field> <!-- 80,001 * 12 (approx) -->
+            <field name="upper_limit">1920000</field> <!-- 160,000 * 12 -->
+            <field name="rate">0.30</field> <!-- 30% -->
+            <field name="deduction">134400</field>
+        </record>
+
+        <record id="dz_tax_bracket_33" model="dz.tax.bracket">
+            <field name="name">Bracket 4 (33%)</field>
+            <field name="lower_limit">1920001</field> <!-- 160,001 * 12 (approx) -->
+            <field name="upper_limit">3840000</field> <!-- 320,000 * 12 -->
+            <field name="rate">0.33</field> <!-- 33% -->
+            <field name="deduction">281600</field>
+        </record>
+
+        <record id="dz_tax_bracket_35" model="dz.tax.bracket">
+            <field name="name">Bracket 5 (35%)</field>
+            <field name="lower_limit">3840001</field> <!-- 320,001 * 12 (approx) -->
+            <field name="rate">0.35</field> <!-- 35% -->
+            <field name="deduction">473600</field>
+        </record>
+
+    </data>
+</odoo>

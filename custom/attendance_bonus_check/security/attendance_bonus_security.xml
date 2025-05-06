@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data noupdate="1">
+
+    <!-- Define the Attendance Bonus Manager group -->
+    <record id="group_attendance_bonus_manager" model="res.groups">
+      <field name="name">Attendance Bonus Manager</field>
+<!--      <field name="category_id" ref="hr_attendance.module_category_hr_attendance"/>-->
+      <field name="comment">Group for users managing attendance bonus eligibility records.</field>
+    </record>
+
+  </data>
+</odoo>

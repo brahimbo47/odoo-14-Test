@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_employee_id_config,access_employee_id_config,model_employee_id_config,hr.group_hr_manager,1,1,1,1
+access_employee_id_migration,access_employee_id_migration,model_employee_id_migration,hr.group_hr_manager,1,1,1,0

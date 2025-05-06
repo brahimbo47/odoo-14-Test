@@ -1,0 +1,21 @@
+{
+    'name': 'Employee Custom ID Generator',
+    'version': '1.0',
+    'summary': 'Customizable Employee ID Generator',
+    'author': 'Balhadj',
+    'website': 'www.balhadj.com',
+    'images': ['static/description/icon.png'],
+    'category': 'Human Resources',
+    'depends': ['hr'],
+    'data': [
+        'security/ir.model.access.csv',
+        'data/sequence.xml',
+        'data/employee_id_config_data.xml',
+        'views/employee_views.xml',
+        'views/employee_id_config_views.xml',
+        'views/employee_id_manager_views.xml',
+    ],
+    'installable': True,
+    'application': True,
+    'autoInstall': False,
+}

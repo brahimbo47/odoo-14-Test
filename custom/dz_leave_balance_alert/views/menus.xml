@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- القائمة الرئيسية للإضافة (اختياري، يمكن وضعها تحت قائمة موجودة) -->
+        <!-- <menuitem id="menu_dz_leave_alert_root"
+                  name="Leave Alerts"
+                  sequence="90"
+                  web_icon="dz_leave_balance_alert,static/description/icon.png" /> -->
+        <!-- ستحتاج إلى إضافة أيقونة إذا استخدمت web_icon -->
+
+        <!-- قائمة الإعدادات -->
+        <!-- تأكد من أن hr.menu_hr_configuration موجود (عادةً ما يكون كذلك إذا تم تثبيت وحدة hr) -->
+        <!-- views/menus.xml (للاختبار فقط) -->
+        <menuitem id="menu_item_dz_leave_alert_config"
+                  name="Leave Balance Alert Config"
+                  action="dz_leave_balance_alert.dz_leave_alert_config_action"
+                  parent="base.menu_administration" <!-- تغيير مؤقت للاختبار -->
+        sequence="100"
+        groups="dz_leave_balance_alert.group_dz_leave_alert_manager"/>
+    </data>
+</odoo>

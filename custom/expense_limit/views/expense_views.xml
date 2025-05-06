@@ -1,0 +1,14 @@
+<odoo>
+  <!-- Inherit the Expense‑Product form, and drop your field in somewhere logical -->
+  <record id="view_product_expense_form_inherit_limit" model="ir.ui.view">
+    <field name="name">product.product.expense.form.limit</field>
+    <field name="model">product.product</field>
+    <field name="inherit_id" ref="hr_expense.product_product_expense_form_view"/>
+    <field name="arch" type="xml">
+      <!-- e.g. right after the 'name' field -->
+      <xpath expr="//field[@name='name']" position="after">
+        <field name="max_limit"/>
+      </xpath>
+    </field>
+  </record>
+</odoo>

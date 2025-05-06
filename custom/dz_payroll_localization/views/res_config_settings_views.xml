@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_config_settings_view_form_inherit_dz_payroll" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.dz.payroll</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="70"/> <!-- Adjust priority as needed -->
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block" data-string="Algerian Payroll" string="Algerian Payroll" data-key="dz_payroll_localization">
+                    <h2>Social Contributions (CNAS/CSS)</h2>
+                    <div class="row mt16 o_settings_container" name="dz_social_config_container">
+                        <!-- Employee CNAS Rate -->
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <label for="dz_employee_cnas_rate"/>
+                                <div class="text-muted">
+                                    Employee CNAS Rate (%)
+                                </div>
+                                <div class="content-group mt16">
+                                    <field name="dz_employee_cnas_rate" widget="percentage"/>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Employer CNAS Rate -->
+                        <div class="col-12 col-lg-6 o_setting_box">
+                             <div class="o_setting_right_pane">
+                                <label for="dz_employer_cnas_rate"/>
+                                <div class="text-muted">
+                                    Employer CNAS Rate (%)
+                                </div>
+                                <div class="content-group mt16">
+                                    <field name="dz_employer_cnas_rate" widget="percentage"/>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Employee Unemployment Rate -->
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <label for="dz_employee_css_rate"/>
+                                <div class="text-muted">
+                                    Employee Unemployment Rate (%)
+                                </div>
+                                <div class="content-group mt16">
+                                    <field name="dz_employee_css_rate" widget="percentage"/>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Employer Unemployment Rate -->
+                         <div class="col-12 col-lg-6 o_setting_box">
+                             <div class="o_setting_right_pane">
+                                <label for="dz_employer_css_rate"/>
+                                <div class="text-muted">
+                                    Employer Unemployment Rate (%)
+                                </div>
+                                <div class="content-group mt16">
+                                    <field name="dz_employer_css_rate" widget="percentage"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2>Allowances and Bonuses</h2>
+                     <div class="row mt16 o_settings_container" name="dz_allowance_config_container">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                             <div class="o_setting_left_pane"/>
+                             <div class="o_setting_right_pane">
+                                 <span class="o_form_label">Family Allowance</span>
+                                 <div class="text-muted">
+                                     Configure family allowance parameters
+                                 </div>
+                                 <div class="content-group">
+                                     <div class="row mt16">
+                                         <label for="dz_amount_per_child" class="col-lg-4 o_light_label"/>
+                                         <field name="dz_amount_per_child" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                     </div>
+                                      <div class="row">
+                                         <label for="dz_max_children" class="col-lg-4 o_light_label"/>
+                                         <field name="dz_max_children"/>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="col-12 col-lg-6 o_setting_box">
+                             <div class="o_setting_left_pane"/>
+                             <div class="o_setting_right_pane">
+                                 <span class="o_form_label">Seniority Bonus</span>
+                                  <div class="text-muted">
+                                     Configure seniority bonus parameters
+                                 </div>
+                                 <div class="content-group">
+                                     <div class="row mt16">
+                                         <label for="dz_seniority_min_years" class="col-lg-5 o_light_label"/>
+                                         <field name="dz_seniority_min_years"/>
+                                     </div>
+                                     <div class="row">
+                                         <label for="dz_seniority_rate_per_year" class="col-lg-5 o_light_label"/>
+                                         <field name="dz_seniority_rate_per_year" widget="percentage"/>
+                                     </div>
+                                      <div class="row">
+                                         <label for="dz_seniority_max_rate" class="col-lg-5 o_light_label"/>
+                                         <field name="dz_seniority_max_rate" widget="percentage"/>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="col-12 col-lg-6 o_setting_box">
+                             <div class="o_setting_left_pane"/>
+                             <div class="o_setting_right_pane">
+                                 <span class="o_form_label">Transport Allowance</span>
+                                 <div class="text-muted">
+                                     Configure default transport allowance
+                                 </div>
+                                 <div class="content-group">
+                                     <div class="row mt16">
+                                         <label for="dz_transport_monthly_amount" class="col-lg-5 o_light_label"/>
+                                         <field name="dz_transport_monthly_amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     <!-- Hidden fields needed for monetary widgets -->
+                     <field name="company_id" invisible="1"/>
+                     <field name="currency_id" invisible="1"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Action to open settings with the Payroll section -->
+    <record id="action_dz_payroll_config" model="ir.actions.act_window">
+        <field name="name">Algerian Payroll Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_id" ref="res_config_settings_view_form_inherit_dz_payroll"/>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module' : 'dz_payroll_localization'}</field>
+    </record>
+
+    <!-- Add settings menu item -->
+    <menuitem
+        id="menu_dz_payroll_global_settings"
+        name="Settings"
+        parent="menu_dz_payroll_config_root"
+        sequence="0"
+        action="action_dz_payroll_config"
+        groups="base.group_system"/>
+
+</odoo>

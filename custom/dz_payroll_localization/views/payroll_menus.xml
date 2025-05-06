@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Main Menu Item under Payroll Configuration -->
+    <menuitem
+        id="menu_dz_payroll_config_root"
+        name="Algerian Payroll"
+        parent="om_hr_payroll.menu_hr_payroll_configuration"
+        sequence="90"/>
+
+    <!-- Submenu items -->
+    <menuitem
+        id="menu_dz_tax_bracket"
+        name="IRG Brackets"
+        parent="menu_dz_payroll_config_root"
+        action="action_dz_tax_bracket"
+        sequence="10"/>
+
+    <menuitem
+        id="menu_dz_overtime_rate"
+        name="Overtime Rates"
+        parent="menu_dz_payroll_config_root"
+        action="action_dz_overtime_rate"
+        sequence="20"/>
+
+    <!-- Reporting Menu -->
+     <menuitem
+        id="menu_dz_payroll_reporting_root"
+        name="Algerian Reports"
+        parent="om_hr_payroll.menu_hr_payroll_root"
+        sequence="90"/>
+
+     <menuitem
+        id="menu_action_dz_payroll_report_wizard"
+        name="Generate Report"
+        parent="menu_dz_payroll_reporting_root"
+        action="action_hr_payslip_report_config"
+        sequence="10"/>
+
+</odoo>

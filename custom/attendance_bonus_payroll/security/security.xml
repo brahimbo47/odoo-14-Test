@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Define a new security group for Perfect Attendance Payroll Management -->
+    <record id="group_perfect_attendance_payroll_manager" model="res.groups">
+        <field name="name">Attendance Bonus Payroll Manager</field>
+        <field name="category_id" ref="base.module_category_human_resources"/>
+        <field name="implied_ids" eval="[(4, ref('om_hr_payroll.group_hr_payroll_manager'))]"/>
+    </record>
+</odoo>

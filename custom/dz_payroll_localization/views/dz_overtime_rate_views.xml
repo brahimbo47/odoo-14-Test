@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree View -->
+    <record id="view_dz_overtime_rate_tree" model="ir.ui.view">
+        <field name="name">dz.overtime.rate.tree</field>
+        <field name="model">dz.overtime.rate</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="multiplier"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_dz_overtime_rate" model="ir.actions.act_window">
+        <field name="name">Overtime Rates</field>
+        <field name="res_model">dz.overtime.rate</field>
+        <field name="view_mode">tree</field>
+         <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Define Overtime Rates and Codes.
+            </p><p>
+                Specify the name (e.g., Weekend), the technical code used in worked days (e.g., OT200), and the pay multiplier (e.g., 2.0).
+            </p>
+        </field>
+    </record>
+
+</odoo>
