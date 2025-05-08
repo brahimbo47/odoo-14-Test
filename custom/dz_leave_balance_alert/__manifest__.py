@@ -23,7 +23,7 @@
 
     'data': [
         # 1. ملفات الأمان (مجموعات، ثم قواعد الوصول CSV، ثم قواعد السجلات)
-        'security/dz_leave_balance_alert_groups.xml',
+        # 'security/dz_leave_balance_alert_groups.xml',
         'security/ir.model.access.csv',
         # 'security/dz_leave_balance_alert_rules.xml', # سنضيفه لاحقًا عند الحاجة لقواعد السجلات
 
