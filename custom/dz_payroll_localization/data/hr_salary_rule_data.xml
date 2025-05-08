@@ -23,10 +23,10 @@
             <field name="code">DZTRANS</field>
             <field name="category_id" ref="DZ_ALW"/>
             <field name="condition_select">python</field>
-            <field name="condition_python"><![CDATA[result = True # Always apply if configured]]></field>
+            <field name="condition_python"><![CDATA[result = True]]></field>
             <field name="amount_select">code</field>
             <field name="amount_python_compute"><![CDATA[
-config_param = env['ir.config_parameter'].sudo()
+config_param = payslip.env['ir.config_parameter'].sudo()
 result = float(config_param.get_param('dz_payroll_localization.monthly_amount', 0.0))
             ]]></field>
             <field name="appears_on_payslip" eval="True"/>
@@ -41,10 +41,10 @@ result = float(config_param.get_param('dz_payroll_localization.monthly_amount', 
             <field name="condition_python"><![CDATA[result = employee.dependent_ids]]></field>
             <field name="amount_select">code</field>
             <field name="amount_python_compute"><![CDATA[
-config_param = env['ir.config_parameter'].sudo()
+config_param = payslip.env['ir.config_parameter'].sudo()
 amount_per_child = float(config_param.get_param('dz_payroll_localization.amount_per_child', 0.0))
 max_children = int(config_param.get_param('dz_payroll_localization.max_children', 0))
-eligible_children = len(employee.dependent_ids) # Add filtering logic if needed (age, etc.)
+eligible_children = len(employee.dependent_ids)
 result = min(eligible_children, max_children) * amount_per_child
             ]]></field>
             <field name="appears_on_payslip" eval="True"/>
@@ -58,34 +58,48 @@ result = min(eligible_children, max_children) * amount_per_child
             <field name="condition_select">python</field>
             <field name="condition_python"><![CDATA[
 from dateutil.relativedelta import relativedelta
-config_param = env['ir.config_parameter'].sudo()
-min_years = int(config_param.get_param('dz_payroll_localization.min_years', 3))
-today = fields.Date.today() # Or payslip.date_to
-first_contract_date = contract.date_start # Or find earliest contract date for employee
+from datetime import date
 result = False
-if first_contract_date:
-    seniority_years = relativedelta(today, first_contract_date).years
-    result = seniority_years >= min_years
+try:
+    end_date = payslip.date_to
+    start_date = contract.date_start
+    if start_date and end_date and isinstance(start_date, date) and isinstance(end_date, date):
+        config_param = payslip.env['ir.config_parameter'].sudo()
+        min_years_str = config_param.get_param('dz_payroll_localization.min_years', '3')
+        min_years = int(min_years_str)
+        seniority_years = relativedelta(end_date, start_date).years
+        result = seniority_years >= min_years
+except Exception:
+    result = False
             ]]></field>
             <field name="amount_select">code</field>
             <field name="amount_python_compute"><![CDATA[
 from dateutil.relativedelta import relativedelta
+from datetime import date
 result = 0.0
-config_param = env['ir.config_parameter'].sudo()
-min_years = int(config_param.get_param('dz_payroll_localization.min_years', 3))
-rate_per_year = float(config_param.get_param('dz_payroll_localization.rate_per_year', 0.0)) / 100.0
-max_rate = float(config_param.get_param('dz_payroll_localization.max_rate', 100.0)) / 100.0
-today = fields.Date.today() # Or payslip.date_to
-first_contract_date = contract.date_start # Or find earliest contract date for employee
+try:
+    end_date = payslip.date_to
+    start_date = contract.date_start
+    if start_date and end_date and isinstance(start_date, date) and isinstance(end_date, date):
+        config_param = payslip.env['ir.config_parameter'].sudo()
+        min_years_str = config_param.get_param('dz_payroll_localization.min_years', '3')
+        rate_per_year_str = config_param.get_param('dz_payroll_localization.rate_per_year', '0.01')
+        max_rate_str = config_param.get_param('dz_payroll_localization.max_rate', '0.20')
 
-if first_contract_date:
-    seniority_years = relativedelta(today, first_contract_date).years
-    if seniority_years >= min_years:
-        applicable_years = seniority_years - min_years + 1 # Or just seniority_years, check rule
-        bonus_rate = min(applicable_years * rate_per_year, max_rate)
-        # Base for seniority is usually basic salary, verify this
-        base_salary = categories.DZBASIC
-        result = base_salary * bonus_rate
+        min_years = int(min_years_str)
+        rate_per_year = float(rate_per_year_str)
+        max_rate = float(max_rate_str)
+
+        seniority_years = relativedelta(end_date, start_date).years
+
+        if seniority_years >= min_years:
+            applicable_years = seniority_years
+            bonus_rate = min(applicable_years * rate_per_year, max_rate)
+            base_salary = categories.DZBASIC
+            if base_salary:
+                 result = base_salary * bonus_rate
+except Exception:
+    result = 0.0
             ]]></field>
             <field name="appears_on_payslip" eval="True"/>
         </record>
@@ -102,14 +116,10 @@ if first_contract_date:
             <field name="condition_python"><![CDATA[result = worked_days.OT150 and worked_days.OT150.number_of_hours > 0]]></field>
             <field name="amount_select">code</field>
             <field name="amount_python_compute"><![CDATA[
-# Calculate hourly rate (adjust divisor based on contract/legal hours)
-# Standard Algerian monthly hours often considered 173.33
 hourly_rate = contract.wage / 173.33
-ot_rate_record = env['dz.overtime.rate'].search([('code', '=', 'OT150')], limit=1)
-multiplier = ot_rate_record.multiplier if ot_rate_record else 1.5 # Default if not found
+ot_rate_record = payslip.env['dz.overtime.rate'].search([('code', '=', 'OT150')], limit=1)
+multiplier = ot_rate_record.multiplier if ot_rate_record else 1.5
 ot_hours = worked_days.OT150.number_of_hours
-# Overtime pay is the *additional* amount (0.5 * rate) or the *total* amount (1.5 * rate)?
-# Assuming total amount here. Adjust if it should be only the premium.
 result = ot_hours * hourly_rate * multiplier
             ]]></field>
             <field name="appears_on_payslip" eval="True"/>
@@ -138,11 +148,10 @@ result = ot_hours * hourly_rate * multiplier
             <field name="condition_python"><![CDATA[result = categories.DZGROSS > 0]]></field>
             <field name="amount_select">code</field>
             <field name="amount_python_compute"><![CDATA[
-# CNAS base is usually the Gross Salary, but check for ceilings/floors if applicable
 cnas_base = categories.DZGROSS
-config_param = env['ir.config_parameter'].sudo()
+config_param = payslip.env['ir.config_parameter'].sudo()
 rate = float(config_param.get_param('dz_payroll_localization.employee_cnas_rate', 0.0)) / 100.0
-result = -(cnas_base * rate) # Deduction is negative
+result = -(cnas_base * rate)
             ]]></field>
             <field name="appears_on_payslip" eval="True"/>
         </record>
@@ -155,15 +164,14 @@ result = -(cnas_base * rate) # Deduction is negative
             <field name="category_id" ref="DZ_DED"/>
             <field name="condition_select">python</field>
             <field name="condition_python"><![CDATA[
-config_param = env['ir.config_parameter'].sudo()
+config_param = payslip.env['ir.config_parameter'].sudo()
 rate = float(config_param.get_param('dz_payroll_localization.employee_css_rate', 0.0))
 result = categories.DZGROSS > 0 and rate > 0
             ]]></field>
             <field name="amount_select">code</field>
             <field name="amount_python_compute"><![CDATA[
-# Base is usually Gross Salary
 css_base = categories.DZGROSS
-config_param = env['ir.config_parameter'].sudo()
+config_param = payslip.env['ir.config_parameter'].sudo()
 rate = float(config_param.get_param('dz_payroll_localization.employee_css_rate', 0.0)) / 100.0
 result = -(css_base * rate)
             ]]></field>
@@ -180,15 +188,9 @@ result = -(css_base * rate)
             <field name="condition_python"><![CDATA[result = categories.DZGROSS > 0]]></field>
             <field name="amount_select">code</field>
             <field name="amount_python_compute"><![CDATA[
-# 1. Calculate Taxable Base (Salaire Imposable)
-# Gross - Employee Social Contributions (CNAS, CSS)
-# Check for specific abatements (e.g., 40% abatement capped at X DA/month or Y DA/year) - THIS IS CRITICAL and NOT included here yet.
-# Assuming simple base for now: Gross - CNAS - CSS
-taxable_base_monthly = categories.DZGROSS + categories.DZCNAS_EMP + categories.DZCSS_EMP # Deductions are negative
+taxable_base_monthly = categories.DZGROSS + categories.DZCNAS_EMP + categories.DZCSS_EMP
 taxable_base_annual = taxable_base_monthly * 12
-
-# 2. Find applicable bracket
-brackets = env['dz.tax.bracket'].search([], order='lower_limit asc')
+brackets = payslip.env['dz.tax.bracket'].search([], order='lower_limit asc')
 irg_annual = 0.0
 
 if taxable_base_annual <= 0:
@@ -197,20 +199,16 @@ else:
     for bracket in brackets:
         is_last_bracket = bracket.upper_limit is None or bracket.upper_limit == 0.0
         if taxable_base_annual >= bracket.lower_limit and (is_last_bracket or taxable_base_annual <= bracket.upper_limit):
-            # Formula: (Taxable Annual * Rate%) - Deduction
             rate = bracket.rate / 100.0
             deduction = bracket.deduction
             irg_annual = (taxable_base_annual * rate) - deduction
-            break # Found the correct bracket
+            break
 
-    # 3. Convert annual IRG back to monthly
     irg_monthly = irg_annual / 12
 
-    # Ensure IRG is not negative and does not exceed taxable base
     irg_monthly = max(0, irg_monthly)
-    # irg_monthly = min(irg_monthly, taxable_base_monthly) # Usually not needed if brackets are correct
 
-    result = -irg_monthly # Deduction is negative
+    result = -irg_monthly
             ]]></field>
             <field name="appears_on_payslip" eval="True"/>
         </record>
@@ -239,8 +237,8 @@ else:
             <field name="condition_python"><![CDATA[result = categories.DZGROSS > 0]]></field>
             <field name="amount_select">code</field>
             <field name="amount_python_compute"><![CDATA[
-cnas_base = categories.DZGROSS # Check base and ceilings/floors
-config_param = env['ir.config_parameter'].sudo()
+cnas_base = categories.DZGROSS
+config_param = payslip.env['ir.config_parameter'].sudo()
 rate = float(config_param.get_param('dz_payroll_localization.employer_cnas_rate', 0.0)) / 100.0
 result = cnas_base * rate
             ]]></field>
@@ -255,14 +253,14 @@ result = cnas_base * rate
             <field name="category_id" ref="DZ_COMP"/>
             <field name="condition_select">python</field>
             <field name="condition_python"><![CDATA[
-config_param = env['ir.config_parameter'].sudo()
+config_param = payslip.env['ir.config_parameter'].sudo()
 rate = float(config_param.get_param('dz_payroll_localization.employer_css_rate', 0.0))
 result = categories.DZGROSS > 0 and rate > 0
             ]]></field>
             <field name="amount_select">code</field>
             <field name="amount_python_compute"><![CDATA[
-css_base = categories.DZGROSS # Check base
-config_param = env['ir.config_parameter'].sudo()
+css_base = categories.DZGROSS
+config_param = payslip.env['ir.config_parameter'].sudo()
 rate = float(config_param.get_param('dz_payroll_localization.employer_css_rate', 0.0)) / 100.0
 result = css_base * rate
             ]]></field>

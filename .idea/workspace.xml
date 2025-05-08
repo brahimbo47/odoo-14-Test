@@ -6,12 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="0bbc75cc-362e-40ec-a7c5-84983103a262" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/odoo/odoo.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Odoo 14 Test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Odoo 14 Test.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom/dz_leave_balance_alert/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/custom/dz_leave_balance_alert/__manifest__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom/dz_leave_balance_alert/security/ir.model.access.csv" beforeDir="false" afterPath="$PROJECT_DIR$/custom/dz_leave_balance_alert/security/ir.model.access.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom/dz_leave_balance_alert/views/menus.xml" beforeDir="false" afterPath="$PROJECT_DIR$/custom/dz_leave_balance_alert/views/menus.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/dz_payroll_localization/data/hr_salary_rule_data.xml" beforeDir="false" afterPath="$PROJECT_DIR$/custom/dz_payroll_localization/data/hr_salary_rule_data.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/dz_payroll_localization/views/dz_employee_dependent_views.xml" beforeDir="false" afterPath="$PROJECT_DIR$/custom/dz_payroll_localization/views/dz_employee_dependent_views.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/odoo" beforeDir="false" afterPath="$PROJECT_DIR$/odoo" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/odoo/addons/auth_totp/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/odoo/addons/auth_totp/__manifest__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/odoo/addons/auth_totp_portal/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/odoo/addons/auth_totp_portal/__manifest__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/odoo/addons/hr_contract/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/odoo/addons/hr_contract/__manifest__.py" afterDir="false" />
@@ -51,23 +49,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.odoo-bin.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;B:/LECENCE INFORMATIQUE/3th L Pro/Stage In CPH/Projects/Odoo 14 Test&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.odoo-bin.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "B:/LECENCE INFORMATIQUE/3th L Pro/Stage In CPH/Projects/Odoo 14 Test",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Projects\Odoo 14 Test\custom\dz_payroll_localization\static\description" />
