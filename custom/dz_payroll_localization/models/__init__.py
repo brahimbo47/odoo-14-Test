@@ -7,3 +7,5 @@ from . import dz_transport_config
 from . import dz_employee_dependent
 from . import hr_employee
 from . import hr_payslip_report
+from . import dz_payroll_config
+from . import hr_payslip

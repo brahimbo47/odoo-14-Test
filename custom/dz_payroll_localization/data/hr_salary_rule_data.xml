@@ -113,7 +113,8 @@ except Exception:
             <field name="category_id" ref="DZ_ALW"/>
             <field name="condition_select">python</field>
             <!-- Assumes worked_days line code 'OT150' exists -->
-            <field name="condition_python"><![CDATA[result = worked_days.OT150 and worked_days.OT150.number_of_hours > 0]]></field>
+            <field name="condition_python">
+                <![CDATA[result = worked_days.OT150 and worked_days.OT150.number_of_hours > 0]]></field>
             <field name="amount_select">code</field>
             <field name="amount_python_compute"><![CDATA[
 hourly_rate = contract.wage / 173.33
@@ -212,6 +213,40 @@ else:
             ]]></field>
             <field name="appears_on_payslip" eval="True"/>
         </record>
+
+        <!-- ///////////////////////////////////////////////////////////////////// -->
+
+        <!-- Salary Rule Input Type for Missing Hours Deduction Amount -->
+        <record id="input_type_missing_hours" model="hr.payslip.input.type">
+            <field name="name">Missing Hours Deduction Amount</field>
+            <field name="code">MISSING_HOURS</field>
+            <field name="country_id" ref="base.dz"/> <!-- Optional: if you use country-specific inputs -->
+        </record>
+
+        <!-- Salary Rule for Missing Hours Deduction -->
+        <record id="rule_ded_missing_hours" model="hr.salary.rule">
+            <field name="name">Missing Daily Hours Deduction</field>
+            <field name="sequence">190</field> <!-- Adjust sequence as needed, should be after gross, before net -->
+            <field name="code">DED_MISSING_HOURS</field>
+            <field name="category_id" ref="om_hr_payroll.DED"/> <!-- Using DED category from om_hr_payroll -->
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = inputs.MISSING_HOURS and inputs.MISSING_HOURS.amount > 0</field>
+            <field name="amount_select">python</field>
+            <field name="amount_python_compute">result = -inputs.MISSING_HOURS.amount
+            </field> <!-- Deduction, so negative -->
+            <field name="active" eval="True"/>
+            <field name="appears_on_payslip" eval="True"/>
+            <!-- Link to salary structures:
+                 This rule and its input type (MISSING_HOURS) must be added to the relevant
+                 hr.payroll.structure records for them to be active on payslips.
+                 You can do this via UI or by adding to <field name="struct_id"> on the rule,
+                 and adding the input_type_missing_hours to the input_line_type_ids of the structure.
+                 Example for one structure (replace 'your_structure_xml_id'):
+                 <field name="struct_id" ref="your_module.your_structure_xml_id"/>
+            -->
+        </record>
+
+        <!-- ///////////////////////////////////////////////////////////////////// -->
 
         <!-- NET CALCULATION -->
         <record id="dz_rule_net" model="hr.salary.rule">

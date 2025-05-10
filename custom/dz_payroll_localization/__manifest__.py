@@ -16,7 +16,7 @@
     'images': ['static/description/icon.png'],
     'category': 'Human Resources',
     'version': '14.0.1.0.0',
-    'depends': ['base', 'hr', 'om_hr_payroll'],
+    'depends': ['base', 'hr', 'om_hr_payroll', 'hr_attendance', 'resource'],
     'data': [
         'security/ir.model.access.csv',
 
@@ -26,6 +26,8 @@
         'data/hr_payroll_structure_data.xml',
         'data/ir_cron_data.xml',
 
+        'data/hr_salary_rule_data.xml',  # << ADD THIS LINE
+
         'views/dz_tax_bracket_views.xml',
         'views/dz_overtime_rate_views.xml',
         'views/dz_employee_dependent_views.xml',
@@ -33,6 +35,8 @@
         'views/hr_payslip_report_views.xml',
         'views/payroll_menus.xml',
         'views/res_config_settings_views.xml',
+        'views/dz_payroll_config_views.xml',
+
     ],
     'installable': True,
     'application': True,
