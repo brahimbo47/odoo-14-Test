@@ -5,14 +5,155 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bbc75cc-362e-40ec-a7c5-84983103a262" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/custom/dz_payroll_localization/models/hr_payslip.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/custom/dz_payroll_localization/models/res_company.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/custom/dz_payroll_localization/models/res_config_settings.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/odoo/odoo.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom/dz_payroll_localization/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/custom/dz_payroll_localization/__manifest__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom/dz_payroll_localization/data/hr_salary_rule_data.xml" beforeDir="false" afterPath="$PROJECT_DIR$/custom/dz_payroll_localization/data/hr_salary_rule_data.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom/dz_payroll_localization/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/custom/dz_payroll_localization/models/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/Custom.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/dz_payroll_localization/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/dz_payroll_localization/__manifest__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/dz_payroll_localization/data/dz_tax_bracket_data.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/dz_payroll_localization/data/hr_payroll_structure_data.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/dz_payroll_localization/data/hr_salary_rule_category_data.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/dz_payroll_localization/data/hr_salary_rule_data.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/dz_payroll_localization/data/ir_cron_data.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/dz_payroll_localization/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/dz_payroll_localization/models/dz_employee_dependent.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/dz_payroll_localization/models/dz_family_config.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/dz_payroll_localization/models/dz_overtime_rate.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/dz_payroll_localization/models/dz_payroll_config.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/dz_payroll_localization/models/dz_seniority_config.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/dz_payroll_localization/models/dz_social_config.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/dz_payroll_localization/models/dz_tax_bracket.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/dz_payroll_localization/models/dz_transport_config.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/dz_payroll_localization/models/hr_employee.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/dz_payroll_localization/models/hr_payslip.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/dz_payroll_localization/models/hr_payslip_report.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/dz_payroll_localization/security/ir.model.access.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/dz_payroll_localization/static/description/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/dz_payroll_localization/views/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/dz_payroll_localization/views/dz_employee_dependent_views.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/dz_payroll_localization/views/dz_overtime_rate_views.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/dz_payroll_localization/views/dz_payroll_config_views.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/dz_payroll_localization/views/dz_tax_bracket_views.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/dz_payroll_localization/views/hr_employee_views.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/dz_payroll_localization/views/hr_payslip_report_views.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/dz_payroll_localization/views/payroll_menus.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/dz_payroll_localization/views/res_config_settings_views.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/__manifest__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/data/hr_payroll_category.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/data/hr_payroll_data.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/data/hr_payroll_demo.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/data/hr_payroll_sequence.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/data/mail_template.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/af.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/am.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/ar.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/az.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/bg.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/bn.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/bs.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/ca.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/cs.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/da.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/de.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/el.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/en_GB.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/es.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/es_AR.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/es_BO.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/es_CL.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/es_CO.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/es_CR.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/es_DO.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/es_EC.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/es_PE.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/es_VE.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/et.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/eu.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/fa.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/fi.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/fil.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/fo.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/fr.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/fr_BE.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/fr_CA.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/gl.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/gu.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/he.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/hi.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/hr.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/hr_payroll.pot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/hu.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/id.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/is.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/it.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/ja.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/ka.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/kab.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/km.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/ko.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/lo.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/lt.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/lv.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/mk.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/mn.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/nb.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/ne.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/nl.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/nl_BE.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/pl.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/pt.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/pt_BR.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/ro.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/ru.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/sk.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/sl.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/sq.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/sr.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/sr@latin.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/sv.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/ta.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/th.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/tr.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/uk.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/vi.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/zh_CN.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/i18n/zh_TW.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/models/hr_contract.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/models/hr_employee.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/models/hr_payslip.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/models/hr_salary_rule.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/models/res_config_settings.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/report/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/report/report_contribution_register.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/report/report_payslip_details.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/security/hr_payroll_security.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/security/ir.model.access.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/static/description/banner.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/static/description/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/static/description/icon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/static/description/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/static/description/odoo14_payslip.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/static/description/odoo_mates.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/static/img/hr_employee_payroll-image.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/tests/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/tests/common.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/tests/test_payslip_flow.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/views/hr_contract_views.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/views/hr_employee_views.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/views/hr_payroll_report.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/views/hr_payslip_views.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/views/hr_salary_rule_views.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/views/report_contribution_register_templates.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/views/report_payslip_details_templates.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/views/report_payslip_templates.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/views/res_config_settings_views.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/wizard/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/wizard/hr_payroll_contribution_register_report.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/wizard/hr_payroll_contribution_register_report_views.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/wizard/hr_payroll_payslips_by_employees.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/om_hr_payroll/wizard/hr_payroll_payslips_by_employees_views.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/odoo" beforeDir="false" afterPath="$PROJECT_DIR$/odoo" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/odoo/addons/auth_totp/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/odoo/addons/auth_totp/__manifest__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/odoo/addons/auth_totp_portal/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/odoo/addons/auth_totp_portal/__manifest__.py" afterDir="false" />
@@ -60,7 +201,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;B:/LECENCE INFORMATIQUE/3th L Pro/Stage In CPH/Projects/Odoo 14 Test&quot;,
+    &quot;last_opened_file_path&quot;: &quot;B:/LECENCE INFORMATIQUE/3th L Pro/Stage In CPH/Projects/Odoo 14 Test/custom&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -72,11 +213,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="B:\LECENCE INFORMATIQUE\3th L Pro\Stage In CPH\Projects\Odoo 14 Test\custom" />
       <recent name="D:\Projects\Odoo 14 Test\custom\dz_payroll_localization\static\description" />
       <recent name="D:\Projects\Odoo 14 Test\custom\attendance_bonus_check" />
       <recent name="D:\Projects\Odoo 14 Test\custom" />
       <recent name="D:\Projects\Odoo 14 Test\custom\hr_disciplinary" />
-      <recent name="D:\Projects\Odoo 14 Test\custom\expense_limit" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Projects\Odoo 14 Test\custom\dz_payroll_localization\static" />

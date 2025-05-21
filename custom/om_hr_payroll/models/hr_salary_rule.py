@@ -224,7 +224,7 @@ class HrSalaryRule(models.Model):
             try:
                 safe_eval(self.condition_python, localdict, mode='exec', nocopy=True)
                 return 'result' in localdict and localdict['result'] or False
-            except:
+            except Exception as ex:
                 raise UserError(_('Wrong python condition defined for salary rule %s (%s).') % (self.name, self.code))
 
 
