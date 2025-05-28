@@ -113,7 +113,8 @@ except Exception:
             <field name="category_id" ref="DZ_ALW"/>
             <field name="condition_select">python</field>
             <!-- Assumes worked_days line code 'OT150' exists -->
-            <field name="condition_python"><![CDATA[result = worked_days.OT150 and worked_days.OT150.number_of_hours > 0]]></field>
+            <field name="condition_python">
+                <![CDATA[result = worked_days.OT150 and worked_days.OT150.number_of_hours > 0]]></field>
             <field name="amount_select">code</field>
             <field name="amount_python_compute"><![CDATA[
 hourly_rate = contract.wage / 173.33
@@ -138,6 +139,29 @@ result = ot_hours * hourly_rate * multiplier
         </record>
 
         <!-- DEDUCTIONS -->
+
+        <!-- //////////////////////////////////////// -->
+        <!-- MISSING DAILY HOURS DEDUCTION RULE -->
+        <record id="dz_rule_ded_missing_hours" model="hr.salary.rule">
+            <field name="name">Missing Daily Hours Deduction</field>
+            <field name="sequence">160
+            </field> <!-- Adjust sequence as needed, should be after gross, within deductions -->
+            <field name="code">DED_MISSING_HOURS</field>
+            <field name="category_id" ref="DZ_DED"/> <!-- Algerian Deductions Category -->
+            <field name="condition_select">python</field>
+            <field name="condition_python"><![CDATA[
+result = inputs.MISSING_HOURS_DED_AMOUNT and inputs.MISSING_HOURS_DED_AMOUNT.amount > 0
+            ]]></field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute"><![CDATA[
+# The amount in MISSING_HOURS_DED_AMOUNT is positive.
+# Salary rules for deductions should return a negative value.
+result = -inputs.MISSING_HOURS_DED_AMOUNT.amount if inputs.MISSING_HOURS_DED_AMOUNT else 0.0
+            ]]></field>
+            <field name="appears_on_payslip" eval="True"/>
+        </record>
+        <!-- //////////////////////////////////////// -->
+
         <!-- CNAS Employee -->
         <record id="dz_rule_cnas_employee" model="hr.salary.rule">
             <field name="name">CNAS Employee (9%)</field>

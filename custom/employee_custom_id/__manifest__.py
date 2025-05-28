@@ -11,6 +11,7 @@
         'security/ir.model.access.csv',
         'data/sequence.xml',
         'data/employee_id_config_data.xml',
+        'data/employee_id_placeholder_data.xml',
         'views/employee_views.xml',
         'views/employee_id_config_views.xml',
         'views/employee_id_manager_views.xml',

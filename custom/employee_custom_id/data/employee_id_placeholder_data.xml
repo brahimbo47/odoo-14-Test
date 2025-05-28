@@ -1,0 +1,44 @@
+<odoo>
+    <data noupdate="1">
+        <record id="placeholder_dep" model="employee.id.placeholder">
+            <field name="name">Department Code</field>
+            <field name="code">{DEP}</field>
+        </record>
+        <record id="placeholder_year" model="employee.id.placeholder">
+            <field name="name">Hire Year</field>
+            <field name="code">{YEAR}</field>
+        </record>
+        <record id="placeholder_seq" model="employee.id.placeholder">
+            <field name="name">Sequence</field>
+            <field name="code">{SEQ}</field>
+        </record>
+        <record id="placeholder_join" model="employee.id.placeholder">
+            <field name="name">Join Date (YYYYMM)</field>
+            <field name="code">{JOIN}</field>
+        </record>
+        <record id="placeholder_name" model="employee.id.placeholder">
+            <field name="name">Name Initials</field>
+            <field name="code">{NAME}</field>
+        </record>
+        <record id="placeholder_ssn" model="employee.id.placeholder">
+            <field name="name">SSN Last 4</field>
+            <field name="code">{SSN}</field>
+        </record>
+        <record id="placeholder_job" model="employee.id.placeholder">
+            <field name="name">Job Code</field>
+            <field name="code">{JOB}</field>
+        </record>
+        <record id="placeholder_comp" model="employee.id.placeholder">
+            <field name="name">Company Code</field>
+            <field name="code">{COMP}</field>
+        </record>
+        <record id="placeholder_depid" model="employee.id.placeholder">
+            <field name="name">Department ID</field>
+            <field name="code">{DEPID}</field>
+        </record>
+        <record id="placeholder_cid" model="employee.id.placeholder">
+            <field name="name">Contract ID</field>
+            <field name="code">{CID}</field>
+        </record>
+    </data>
+</odoo>

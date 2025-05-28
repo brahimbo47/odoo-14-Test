@@ -1,2 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_dz_leave_alert_config_all_users,dz.leave.alert.config all users,model_dz_leave_alert_config,base.group_user,1,1,1,1

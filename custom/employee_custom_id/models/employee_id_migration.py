@@ -1,6 +1,7 @@
 from odoo import api, fields, models
 from datetime import datetime
 
+
 class EmployeeIDMigration(models.TransientModel):
     _name = 'employee.id.migration'
     _description = 'Generate Custom IDs for Existing Employees'
@@ -22,32 +23,43 @@ class EmployeeIDMigration(models.TransientModel):
         for emp in employees:
             dep_code = (emp.department_id.name or 'GEN')[:3].upper()
 
-            # getting hire date from the new contract
-            hire_year = None
+            name_initials = emp.name[:3].upper() if emp.name else ''
+            ssn_last4 = emp.ssnid[-4:] if emp.ssnid and len(emp.ssnid) >= 4 else ''
+            job_code = emp.job_id.name[:3].upper() if emp.job_id and emp.job_id.name else ''
+            comp_code = emp.company_id.name[:3].upper() if emp.company_id and emp.company_id.name else ''
+            dep_id = str(emp.department_id.id) if emp.department_id else ''
+            contract_id = ''  # not meaningful here
+            join_yyyymm = ''
+            hire_year = datetime.today().year
+
             if emp.contract_ids:
-                # find the most new contract
                 earliest = min(emp.contract_ids, key=lambda c: c.date_start or datetime.max.date())
-                hire_year = fields.Date.from_string(earliest.date_start).year
+                if earliest.date_start:
+                    hire_year = earliest.date_start.year
+                    join_yyyymm = earliest.date_start.strftime('%Y%m')
 
-            # getting employee creation year if there is no contract
-            if not hire_year:
-                hire_year = fields.Datetime.from_string(emp.create_date).year
+            if not join_yyyymm:
+                join_yyyymm = emp.create_date.strftime('%Y%m') if emp.create_date else datetime.today().strftime('%Y%m')
 
-            # getting the next sequence
             seq = self.env['ir.sequence'].next_by_code('employee.custom.id')
 
-            # create ID
             emp.custom_employee_id = (
                 config.format_string
-                      .replace('{DEP}', dep_code)
-                      .replace('{YEAR}', str(hire_year))
-                      .replace('{SEQ}', seq)
+                .replace('{DEP}', dep_code)
+                .replace('{YEAR}', str(hire_year))
+                .replace('{SEQ}', seq)
+                .replace('{NAME}', name_initials)
+                .replace('{SSN}', ssn_last4)
+                .replace('{JOB}', job_code)
+                .replace('{COMP}', comp_code)
+                .replace('{DEPID}', dep_id)
+                .replace('{CID}', contract_id)
+                .replace('{JOIN}', join_yyyymm)
             )
 
         return {'type': 'ir.actions.act_window_close'}
 
     def action_clear_ids(self):
-        """Clear custom_employee_id for all employees."""
         employees = self.env['hr.employee'].search([
             ('custom_employee_id', '!=', False)
         ])

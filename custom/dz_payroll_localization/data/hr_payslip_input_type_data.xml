@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="input_type_missing_hours_ded_amount" model="hr.payslip.input.type">
+            <field name="name">Missing Hours Deduction Amount</field>
+            <field name="code">MISSING_HOURS_DED_AMOUNT</field>
+            <!-- You might want to link this to a specific structure if needed,
+                 or leave it general. For om_hr_payroll, input types are general. -->
+            <!-- <field name="struct_id" ref="dz_payroll_localization.dz_structure_employee"/> -->
+        </record>
+
+    </data>
+</odoo>
